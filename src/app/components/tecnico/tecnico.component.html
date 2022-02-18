@@ -1,0 +1,61 @@
+<div fxFlex fxLayout="column" fxLayoutGap="0px">
+    <div fxLayout="row wrap">
+      <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
+        <div fxLayoutAlign="center" id="fotos">
+          <img id="logo" style="max-width: 100px; max-height: 100px; margin-top: 20px;" src="../../../assets/images/java.png" />
+        </div>
+      </div>
+  
+      <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column" class="mat-app-background">
+        <div fxLayout="column" fxLayoutAlign="center" style="margin-top:30px">
+          <div fxLayout="row" fxLayoutAlign="center">
+            <h1><b>Bienvenido al módulo de registro de horas de servicio</b></h1>
+          </div>
+  
+          <div fxLayout="row" fxLayoutAlign="center">
+            <h3 id="instruc">Porfavor diligencie la siguiente información para registrar<br> las horas que le tomo realizar este servicio</h3>
+          </div>
+        </div>
+  
+        <div fxLayout="column" fxLayoutAlign="center" style="margin-top:100px">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+            <div fxLayoutAlign="center">
+              <mat-form-field style="width:50%" appearance="fill">
+                <mat-label>Ingrese el codigo del técnico</mat-label>
+                <input formControlName="tecnico_id" matInput>
+                <mat-error *ngIf="form.controls['tecnico_id'].invalid">Este campo no puede estar vacío</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center" style="margin-top:10px">
+              <mat-form-field style="width:50%" appearance="fill">
+                <mat-label>Ingrese el codigo del servicio</mat-label>
+                <input formControlName="servicio_id" matInput>
+                <mat-error *ngIf="form.controls['servicio_id'].invalid">Este campo no puede estar vacío</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center" style="margin-top:10px">
+              <mat-form-field style="width:50%" appearance="fill">
+                <mat-label>Ingrese la fecha y hora del inicio</mat-label>
+                <input matInput [ngxMatDatetimePicker]="pickerFrom" [(ngModel)]="fecha_hora_fin" formControlName="fecha_hora_inicio">
+                <mat-datepicker-toggle matSuffix [for]="$any(pickerFrom)"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #pickerFrom [enableMeridian]="true"></ngx-mat-datetime-picker>
+                <mat-error *ngIf="form.controls['fecha_hora_inicio'].invalid">Este campo no puede estar vacío</mat-error>
+            </mat-form-field>
+              </div>
+              <div fxLayoutAlign="center" style="margin-top:10px">
+                <mat-form-field style="width:50%" appearance="fill">
+                  <mat-label>Ingrese la fecha y hora del finnalización</mat-label>
+                  <input matInput formControlName="fecha_hora_fin" [ngxMatDatetimePicker]="pickerTo" [(ngModel)]="fecha_hora_inicio" [min]="fecha_hora_fin">
+                  <mat-datepicker-toggle matSuffix [for]="$any(pickerTo)"></mat-datepicker-toggle>
+                  <ngx-mat-datetime-picker #pickerTo [enableMeridian]="true"></ngx-mat-datetime-picker>
+                  <mat-error *ngIf="form.controls['fecha_hora_inicio'].invalid">Este campo no puede estar vacío</mat-error>
+              </mat-form-field>
+              </div>
+            <div fxLayoutAlign="center" style="margin-top:20px">
+              <button [disabled]="!form.valid || formSubmitted" type="submit" mat-raised-button color="primary">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> 
+  </div>
