@@ -20,6 +20,7 @@ import {
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DatePipe } from '@angular/common';
+import { WorkHoursComponent } from './work-hours/work-hours.component';
     
     export const DateFormats = {
         parse: {
@@ -35,7 +36,8 @@ import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
-    TecnicoComponent
+    TecnicoComponent,
+    WorkHoursComponent
   ],
   imports: [
     CommonModule,

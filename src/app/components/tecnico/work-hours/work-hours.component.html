@@ -1,0 +1,59 @@
+<div fxFlex fxLayout="column" fxLayoutGap="0px">
+    <div fxLayout="row wrap">
+      <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column">
+        <div fxLayoutAlign="center" id="fotos">
+          <img id="logo" style="max-width: 100px; max-height: 100px; margin-top: 20px;" src="../../../assets/images/java.png" />
+        </div>
+      </div>
+  
+      <div fxFlex="50" fxFlex.lt-md="100" fxLayout="column" class="mat-app-background">
+        <div fxLayout="column" fxLayoutAlign="center" style="margin-top:30px">
+          <div fxLayout="row" fxLayoutAlign="center">
+            <h1><b>Bienvenido al módulo de registro de horas de servicio</b></h1>
+          </div>
+  
+          <div fxLayout="row" fxLayoutAlign="center">
+            <h3 id="instruc">Porfavor diligencie la siguiente información para registrar<br> las horas que le tomo realizar este servicio</h3>
+          </div>
+        </div>
+  
+        <div fxLayout="column" fxLayoutAlign="center" style="margin-top:100px">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+            <div fxLayoutAlign="center">
+              <mat-form-field style="width:50%" appearance="fill">
+                <mat-label>Ingrese el codigo del técnico</mat-label>
+                <input formControlName="tecnico_id" matInput>
+                <mat-error *ngIf="form.controls['tecnico_id'].invalid">Este campo no puede estar vacío</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center" style="margin-top:10px">
+              <mat-form-field style="width:50%" appearance="fill">
+                <mat-label>Ingresela semana del año</mat-label>
+                <input type="number" formControlName="semana" matInput max="52" min="1">
+                <mat-error *ngIf="form.controls['semana'].invalid">Este campo no puede estar vacío y debe corresponder a una semana del año</mat-error>
+              </mat-form-field>
+            </div>
+        
+            <div fxLayoutAlign="center" style="margin-top:20px">
+              <button [disabled]="!form.valid || formSubmitted" type="submit" mat-raised-button color="primary">Consultar</button>
+            </div>
+          </form>
+          <div fxLayoutAlign="center" style="margin-top:30px">
+            <mat-form-field style="width:70%" appearance="fill" *ngIf="formSubmitted">
+            <mat-label class="mostrarHoras">Reporte de horas del técnico</mat-label>
+            <textarea class="mostrarHoras" matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="8" disabled> La cantidad de horas NORMALES corresponde a: {{horasTrabajadas.cantidadHorasNormales}}
+La cantidad de horas NOCTURNAS corresponde a: {{horasTrabajadas.cantidadHorasNocturnas}}
+La cantidad de horas DOMINICALES corresponde a: {{horasTrabajadas.cantidadHorasDominicales}}
+La cantidad de horas NORMALES EXTRA corresponde a: {{horasTrabajadas.cantidadHorasNormalesExtra}}
+La cantidad de horas NOCTURNAS EXTRA corresponde a: {{horasTrabajadas.cantidadHorasNocturnasExtra}}
+La cantidad de horas DOMINICALES EXTRA corresponde a: {{horasTrabajadas.cantidadHorasDominicalesExtra}}</textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>

@@ -3,9 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Reporte } from 'src/app/model/reporte.model';
 import { ReporteService } from 'src/app/services/reporte.service';
 import Swal from 'sweetalert2';
-import {IAngularMyDpOptions, IMyDateModel} from 'angular-mydatepicker';
-
-const input = document.querySelector('.f_inicio');
 
 @Component({
   selector: 'app-tecnico',
@@ -33,10 +30,9 @@ export class TecnicoComponent implements OnInit {
       'fecha_hora_inicio': ['', Validators.compose([Validators.required])],
       'fecha_hora_fin': ['', Validators.compose([Validators.required])],
     })
-    console.log(input)
   }
 
-  onSubmit(loginForm: string[]) {
+  onSubmit(reporteForm: string[]) {
     this.formSubmitted = true;
 
     if (this.form.valid) {
