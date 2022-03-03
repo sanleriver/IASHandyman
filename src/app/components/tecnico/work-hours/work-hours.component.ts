@@ -12,6 +12,7 @@ export class WorkHoursComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   formSubmitted: boolean = false;
+  formSubmitted2: boolean = false;
   horasTrabajadas: HorasSemanales = <HorasSemanales>{};
   
   constructor(private formBuilder: FormBuilder,
@@ -26,6 +27,7 @@ export class WorkHoursComponent implements OnInit {
 
   onSubmit(weekForm: string[]) {
     this.formSubmitted = true;
+    this.formSubmitted2 = true;
 
     if (this.form.valid) {
         let tecnico_id = this.form.controls['tecnico_id'].value;
@@ -36,6 +38,7 @@ export class WorkHoursComponent implements OnInit {
             this.horasTrabajadas = horas
             console.log(this.horasTrabajadas);
           })
+          this.formSubmitted = false;
 
     } else {
         console.log("The form is NOT valid");

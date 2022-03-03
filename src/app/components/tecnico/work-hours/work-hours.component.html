@@ -39,18 +39,18 @@
             </div>
           </form>
           <div fxLayoutAlign="center" style="margin-top:30px">
-            <mat-form-field style="width:70%" appearance="fill" *ngIf="formSubmitted">
+            <mat-form-field style="width:70%" appearance="fill" *ngIf="formSubmitted2">
             <mat-label class="mostrarHoras">Reporte de horas del técnico</mat-label>
             <textarea class="mostrarHoras" matInput
               cdkTextareaAutosize
               #autosize="cdkTextareaAutosize"
               cdkAutosizeMinRows="1"
-              cdkAutosizeMaxRows="8" disabled> La cantidad de horas NORMALES corresponde a: {{horasTrabajadas.cantidadHorasNormales}}
-La cantidad de horas NOCTURNAS corresponde a: {{horasTrabajadas.cantidadHorasNocturnas}}
-La cantidad de horas DOMINICALES corresponde a: {{horasTrabajadas.cantidadHorasDominicales}}
-La cantidad de horas NORMALES EXTRA corresponde a: {{horasTrabajadas.cantidadHorasNormalesExtra}}
-La cantidad de horas NOCTURNAS EXTRA corresponde a: {{horasTrabajadas.cantidadHorasNocturnasExtra}}
-La cantidad de horas DOMINICALES EXTRA corresponde a: {{horasTrabajadas.cantidadHorasDominicalesExtra}}</textarea>
+              cdkAutosizeMaxRows="8" disabled> Horas NORMALES: {{horasTrabajadas.cantidadHorasNormales}}
+Horas NOCTURNAS: {{horasTrabajadas.cantidadHorasNocturnas}}
+Horas DOMINICALES: {{horasTrabajadas.cantidadHorasDominicales}}
+Horas NORMALES EXTRA: {{horasTrabajadas.cantidadHorasNormalesExtra}}
+Horas NOCTURNAS EXTRA: {{horasTrabajadas.cantidadHorasNocturnasExtra}}
+Horas DOMINICALES EXTRA: {{horasTrabajadas.cantidadHorasDominicalesExtra}}</textarea>
             </mat-form-field>
           </div>
         </div>
